@@ -1,4 +1,7 @@
 ###HELLO
+import time
+
+
 
 cards = {"Ace_Club": 10, "Ace_Heart": 10, "Ace_Spade": 10, "Ace_Diamond": 10, "King_Club": 10, "King_Heart": 10,
          "King_Spade": 10, "King_Diamond": 10, "Queen_Club": 10, "Queen_Heart": 10, "Queen_Spade": 10, "Queen_Diamond": 10,
@@ -13,9 +16,24 @@ class Player:
     def __init__(self, name):
         self.currentscore = 0
         self.chips = 0
+        self.wins = 0
+
+class Computer:
+    def __init__(self, name):
+        self.currentscore = 0
+        self.chips = 0
+        self.wins = 0
 
 
 
+def startup():
+    print("Enter your name to begin.")
+    option = input("->")
+    global PlayerIG
+    global ComputerIG
+    PlayerIG = Player(option)
+    ComputerIG = Computer
+    game()
 
 def start():
     print("Hello and welcome to Blackjack!")
@@ -23,12 +41,16 @@ def start():
     print("2.) Quit")
     option = input("-> ")
     if option.strip() == "1":
-        game()
+        startup()
     if option.strip() == "2":
         sys.exit()
 
 
 def game():
-
+    print("Player Wins: " + str(PlayerIG.wins))
+    print("Player Chips: " + str(PlayerIG.chips))
+    print("\n")
+    print("Computer Wins: " + str(ComputerIG.wins))
+    print("Computer Chips: " + )
 
 start()
